@@ -95,10 +95,6 @@ const CalculatorScreen = () => {
       setAllowSecondInput(false);
     }
 
-    if (operatorEvent === "%") {
-      console.log(" Precent Pressed");
-    }
-
     if (ev.target.value === "Backspace") {
       const sliceInput = numInput.toString().slice(0, -1);
       setNumInput(+sliceInput);
@@ -119,14 +115,18 @@ const CalculatorScreen = () => {
   return (
     <div className="ui container">
       <div className="ui ">
-        <div className="ui segment huge label container">
+        <div
+          className="ui segment huge label container"
+          style={{ textAlign: "end" }}
+        >
           <span className=" ">{firstNum}</span>
           <span className=" ">{operatorSymbol}</span>
           <span className=" ">{secondNum}</span>
           <span className=" ">{showSum ? `= ${showSum}` : null}</span>
         </div>
-        <div className="ui input container ">
+        <div className="ui input container " style={{ marginBottom: 20 }}>
           <input
+            style={{ textAlign: "end" }}
             type="text"
             id="input"
             inputMode="numeric"
@@ -139,28 +139,6 @@ const CalculatorScreen = () => {
       </div>
       <div className="calculator-number">
         <div className="grid-container">
-          <div className="" value=""></div>
-          <button
-            className="ui button circular"
-            value="Clear"
-            onClick={onHandleOperatorPressed}
-          >
-            Clear
-          </button>
-          <button
-            className="ui button circular"
-            value="%"
-            onClick={onHandleOperatorPressed}
-          >
-            %
-          </button>
-          <button
-            className="ui button circular"
-            value="/"
-            onClick={onHandleOperatorPressed}
-          >
-            /
-          </button>
           <button
             className="ui button circular"
             value="7"
@@ -184,11 +162,12 @@ const CalculatorScreen = () => {
           </button>
           <button
             className="ui button circular"
-            value="*"
+            value="/"
             onClick={onHandleOperatorPressed}
           >
-            X
+            /
           </button>
+
           <button
             className="ui button circular"
             value="4"
@@ -212,11 +191,12 @@ const CalculatorScreen = () => {
           </button>
           <button
             className="ui button circular"
-            value="-"
+            value="*"
             onClick={onHandleOperatorPressed}
           >
-            -
+            X
           </button>
+
           <button
             className="ui button circular"
             value="1"
@@ -240,10 +220,10 @@ const CalculatorScreen = () => {
           </button>
           <button
             className="ui button circular"
-            value="+"
+            value="-"
             onClick={onHandleOperatorPressed}
           >
-            +
+            -
           </button>
           <button
             className="ui button circular"
@@ -261,17 +241,25 @@ const CalculatorScreen = () => {
           </button>
           <button
             className="ui button circular"
-            value="."
-            onClick={onHandleInput}
-          >
-            .
-          </button>
-          <button
-            className="ui button circular"
             value="Enter"
             onClick={onHandleOperatorPressed}
           >
             =
+          </button>
+          <button
+            className="ui button circular"
+            value="+"
+            onClick={onHandleOperatorPressed}
+          >
+            +
+          </button>
+
+          <button
+            className="ui button circular"
+            value="Clear"
+            onClick={onHandleOperatorPressed}
+          >
+            Clear
           </button>
         </div>
       </div>
